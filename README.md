@@ -16,9 +16,9 @@
 - **Services**
   - Login and Tweets Service to auth and get info from Twitter
 - **Routes**
-  - `/oauth_request`
-  - `/connect`
-  - `/tweets`
+  - `/oauth_request`
+  - `/connect`
+  - `/tweets`
 - **Config**
   - `/oauth` --> set/get keys for Twitter API
 
