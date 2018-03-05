@@ -6,6 +6,7 @@ const twitter = new twitterAPI({
   callback: OAuth.callback
 });
 
+
 exports.requestAuthToken = () => {
   return new Promise((resolve, reject) => {
     twitter.getRequestToken((error, oauth_token, oauth_secretToken) => {
@@ -23,6 +24,7 @@ exports.requestAuthToken = () => {
     });
   });
 };
+
 
 exports.connect = (oauth_token, oauth_verifier) => {
   return new Promise((resolve, reject) => {
@@ -45,6 +47,7 @@ exports.connect = (oauth_token, oauth_verifier) => {
       });
   });
 };
+
 
 exports.credentials = (accessToken, accessTokenSecret) => {
   return new Promise((resolve, reject) => {

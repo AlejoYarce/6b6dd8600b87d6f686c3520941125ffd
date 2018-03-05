@@ -1,5 +1,6 @@
 const LoginService = require('../services/LoginService');
 
+
 exports.requestAuthToken = (req, res) => {
   LoginService.requestAuthToken()
     .then(result => res.json(result))

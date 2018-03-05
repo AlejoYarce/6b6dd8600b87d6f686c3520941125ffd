@@ -1,7 +1,7 @@
 const LoginController = require('../controllers/LoginController');
 const TweetsController = require('../controllers/TweetsController');
 
-module.exports = function (app) {
+module.exports = (app) => {
   app.route('/')
     .get((req, res) => {
       res.status(200).json({ message: 'Connected!' });
@@ -15,5 +15,8 @@ module.exports = function (app) {
 
   app.route('/tweets')
     .get(TweetsController.tweets);
+
+  app.route('/tweet')
+    .post(TweetsController.tweet);
 
 };

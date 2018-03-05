@@ -1,10 +1,11 @@
 const OAuth = require('../config/oauth');
 const twitterAPI = require('node-twitter-api');
 const twitter = new twitterAPI({
-    consumerKey: OAuth.consumerKey,
-    consumerSecret: OAuth.consumerSecret,
-    callback: OAuth.callback
+  consumerKey: OAuth.consumerKey,
+  consumerSecret: OAuth.consumerSecret,
+  callback: OAuth.callback
 });
+
 
 exports.tweets = (headers) => {
   return new Promise((resolve, reject) => {
@@ -19,5 +20,22 @@ exports.tweets = (headers) => {
           resolve(data);
         }
       });
+  });
+};
+
+
+exports.tweet = (content, headers) => {
+  return new Promise((resolve, reject) => {
+    twitter.statuses('update', { status: content },
+      headers['x-access-token'],
+      headers['x-access-token-secret'],
+      (error, data, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(data);
+        }
+      }
+    );
   });
 };
